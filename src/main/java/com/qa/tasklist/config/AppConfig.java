@@ -1,4 +1,4 @@
-package com.qa.todolist.config;
+package com.qa.tasklist.config;
 
 import java.time.LocalTime;
 

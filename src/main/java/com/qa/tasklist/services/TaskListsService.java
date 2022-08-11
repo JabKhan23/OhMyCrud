@@ -1,4 +1,4 @@
-package com.qa.todolist.services;
+package com.qa.tasklist.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.qa.todolist.persistence.domain.TaskListsDomain;
-import com.qa.todolist.persistence.dto.TaskListsDTO;
-import com.qa.todolist.persistence.repos.TaskListsRepo;
+import com.qa.tasklist.persistence.domain.TaskListsDomain;
+import com.qa.tasklist.persistence.dto.TaskListsDTO;
+import com.qa.tasklist.persistence.repos.TaskListsRepo;
 
 @Service
 public class TaskListsService {

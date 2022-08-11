@@ -1,4 +1,4 @@
-package com.qa.todolist.persistence.dto;
+package com.qa.tasklist.persistence.dto;
 
 import java.util.Date;
 

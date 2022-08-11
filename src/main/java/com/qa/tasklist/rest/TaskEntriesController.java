@@ -1,4 +1,4 @@
-package com.qa.todolist.rest;
+package com.qa.tasklist.rest;
 
 import java.util.List;
 
@@ -15,45 +15,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.todolist.persistence.domain.TaskListsDomain;
-import com.qa.todolist.persistence.dto.TaskListsDTO;
-import com.qa.todolist.services.TaskListsService;
+import com.qa.tasklist.persistence.domain.TaskEntriesDomain;
+import com.qa.tasklist.persistence.dto.TaskEntriesDTO;
+import com.qa.tasklist.services.TaskEntriesService;
+
 
 @CrossOrigin
 @RestController
-@RequestMapping("/lists")
-public class TaskListsController {
+@RequestMapping("/entries")
+public class TaskEntriesController {
 
-	private TaskListsService service;
+	private TaskEntriesService service;
 
 	@Autowired
-	public TaskListsController(TaskListsService service) {
+	public TaskEntriesController(TaskEntriesService service) {
 		super();
 		this.service = service;
 	}
 
-	// GET - read all information
+	// GET - read all
 	@GetMapping("/readAll")
-	public ResponseEntity<List<TaskListsDTO>> readAll() {
-		return new ResponseEntity<List<TaskListsDTO>>(this.service.readAll(), HttpStatus.OK);
+	public ResponseEntity<List<TaskEntriesDTO>> readAll() {
+		return new ResponseEntity<List<TaskEntriesDTO>>(this.service.readAll(), HttpStatus.OK);
 	}
 
 	// GET - read by id
-	@GetMapping("read/{id}")
-	public ResponseEntity<TaskListsDTO> readOne(@PathVariable("id") Long id) {
-		return new ResponseEntity<TaskListsDTO>(this.service.readOne(id), HttpStatus.OK);
+	@GetMapping("/read/{id}")
+	public ResponseEntity<TaskEntriesDTO> readOne(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(this.service.readOne(id));
 	}
 
 	// POST
 	@PostMapping("/create")
-	public ResponseEntity<TaskListsDTO> create(@RequestBody TaskListsDomain entry) {
-		return new ResponseEntity<TaskListsDTO>(this.service.create(entry), HttpStatus.CREATED);
+	public ResponseEntity<TaskEntriesDTO> create(@RequestBody TaskEntriesDomain entry) {
+		return new ResponseEntity<TaskEntriesDTO>(this.service.create(entry), HttpStatus.CREATED);
 	}
 
 	// PUT
 	@PutMapping("/update/{id}")
-	public ResponseEntity<TaskListsDTO> update(@PathVariable Long id, @RequestBody TaskListsDomain entry) {
-		return new ResponseEntity<TaskListsDTO>(this.service.update(id, entry), HttpStatus.ACCEPTED);
+	public ResponseEntity<TaskEntriesDTO> update(@PathVariable Long id, @RequestBody TaskEntriesDomain entry) {
+		return new ResponseEntity<TaskEntriesDTO>(this.service.update(id, entry), HttpStatus.ACCEPTED);
 	}
 
 	// DELETE
@@ -62,4 +63,5 @@ public class TaskListsController {
 		return this.service.delete(id) ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+
 }

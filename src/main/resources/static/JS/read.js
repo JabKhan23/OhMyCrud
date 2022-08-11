@@ -48,10 +48,10 @@ const readLists = () => {
     })
         .then((response) => {
             if (response.status !== 200) {
-                throw new Error("I don't have a status of 200");
+                throw new Error("Error 200");
             } else {
                 console.log(response);
-                console.log(`response is OK (200)`);
+                console.log(`OK (200)`);
                 //json-ify it (which returns a promise)
                 response.json().then((infofromserver) => {
                     console.log(infofromserver);
@@ -72,10 +72,10 @@ const readEntries = () => {
     })
         .then((response) => {
             if (response.status !== 200) {
-                throw new Error("I don't have a status of 200");
+                throw new Error("Error 200");
             } else {
                 console.log(response);
-                console.log(`response is OK (200)`);
+                console.log(` OK (200)`);
                 //json-ify it (which returns a promise)
                 response.json().then((infofromserver) => {
                     console.log(infofromserver);

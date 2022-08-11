@@ -1,4 +1,4 @@
-package com.qa.todolist.persistence.domain;
+package com.qa.tasklist.persistence.domain;
 
 import java.util.List;
 

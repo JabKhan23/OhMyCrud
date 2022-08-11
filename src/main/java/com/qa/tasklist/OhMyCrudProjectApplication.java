@@ -1,4 +1,4 @@
-package com.qa.todolist;
+package com.qa.tasklist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;

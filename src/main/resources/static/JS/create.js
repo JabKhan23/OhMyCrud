@@ -20,9 +20,9 @@ const clearDetails = () => {
 
 const printScreen = (title) => {
     let element = document.createElement("h3");
-    let text = document.createTextNode(`New list created: ${title.title}`);
+    let text = document.createTextNode(`New list Created: ${title.title}`);
     let element2 = document.createElement("p");
-    let text2 = document.createTextNode(`with id: ${title.id}`);
+    let text2 = document.createTextNode(`ID Number: ${title.id}`);
     element2.appendChild(text2);
     element.appendChild(text);
     showList.appendChild(element);
