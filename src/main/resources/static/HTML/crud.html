@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh My Crud Diary Manager</title>
+    <link href="../CSS/stylesheet.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<style>        
+    body {            
+        background-image: url(https://www.razoredge-media.co.uk/wp-content/uploads/2016/10/whatsintown-portfolio-bg.png);
+              }    
+</style>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md sticky-top">
+        <div class="container-fluid">
+           
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponse">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light" href="../index.html">Home</a>
+                        </li>
+
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <!-- About -->
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h1 class="title">Diary Manager.</h1>
+            </div>
+            <hr>
+            <div class="lead">
+                <p>Here you will be able to make tasks and lists depending on your preference. You will need to get the ID to delete and update any tasks or lists.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Add list -->
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-md">
+                <h4>Create List</h4>
+                <div class="form-group">
+                    <label class="form-check-label">Enter List Title:</label>
+                    <input type="text" class="form-control" id="listTitle">
+                    <button type="submit" class="btn btn-success" id="createButton">Create List</button>
+                    <div id="createList"></div>
+                </div>
+                <h4>Add Tasks To List:</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="taskTitle" placeholder="Add a decription to the task">
+                    <input type="date" class="form-control" id="taskDueDate" , placeholder="due date (yyyy-mm-dd)">
+                    <label class="form-check-label">Enter The List ID:</label>
+                    <input type="text" class="form-control" id="IdOfList" , placeholder="List ID">
+                    <button type="submit" class="btn btn-success" id="addButton">Add Task</button>
+                    <button type="submit" class="btn btn-dark" id="finishAddButton">Finish Add</button>
+                </div>
+
+            </div>
+            <!-- Read list -->
+            <div class="col-md">
+                <h4>Read List By ID</h4>
+                <div class="form-group">
+                    <label class="form-check-label">Enter List ID:</label>
+                    <input type="text" class="form-control" id="listId">
+                    <button type="button" class="btn btn-success" id="readListById">View List</button>
+                </div>
+                <div class="form-group">
+                    <h4>Read All Lists</h4>
+                    <button type=" button" class="btn btn-success" id="readLists">View All
+                        Lists</button>
+                    <button type=" button" class="btn btn-danger" id="clearLists">Clear
+                        Lists</button>
+                </div>
+            </div>
+            <div class="col-md">
+                <h4>Delete List By ID</h4>
+                <div class="form-group">
+                    <label class="form-check-label">Enter List ID:</label>
+                    <input type="text" class="form-control" id="deletelistId">
+                    <button type="button" class="btn btn-danger" id="deleteListButton">Delete List</button>
+                </div>
+                <h4>Delete Task From List</h4>
+                <div class="form-group">
+                    <label class="form-check-label">Enter Task ID:</label>
+                    <input type="text" class="form-control" id="deletetaskId">
+                    <button type="button" class="btn btn-danger" id="deleteTaskButton">Delete Task</button>
+                    <div id="showDeleted"></div>
+                </div>
+            </div>
+            <!-- Update -->
+            <div class="col-md">
+                <h4>Update Lists</h4>
+                <div class="form-group">
+                    <label class="form-check-label">Enter ID Of List To Update:</label>
+                    <input type="text" class="form-control" id="updatelistId">
+                    <label class="form-check-label">Enter Updated Title Of List:</label>
+                    <input type="text" class="form-control" id="updatelistTitle">
+                    <button type="button" class="btn btn-success" id="updateListButton">Update List</button>
+                    <div id="showUpdate"></div>
+                </div>
+                <h4>Update Tasks in List</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="taskIDUpdate" placeholder="Insert Task ID here">
+                    <input type="text" class="form-control" id="taskTitleUpdate" placeholder="Insert Updated Description">
+                    <input type="date" class="form-control" id="taskDueDateUpdate" ,
+                        placeholder="updated due date (yyyy-mm-dd)">
+                    <label>Check box if the task is complete: </label>
+                    <input type="checkbox" id="completed" />
+                    <label class="form-check-label">Enter The List ID:</label>
+                    <input type="text" class="form-control" id="IdOfListUpdate" , placeholder="List ID">
+                    <button type="submit" class="btn btn-success" id="updateButton">Update Task</button>
+                    <button type="submit" class="btn btn-dark" id="finishUpdateButton">Finish Update</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Information from Backend and how it gets printed out -->
+    </div>
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="col-sm">
+                <ul id="taskList"></ul>
+            </div>
+            <div class="col-sm">
+                <div id="showLists"></div>
+            </div>
+            </br>
+            <div class="col-sm">
+                <ul id="updatedTaskList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/update.js"></script>
+    <script src="../JS/delete.js"></script>
+    <script src="../JS/create.js"></script>
+    <script src="../JS/read.js"></script>
+    <!-- bootstrap scripts -->
+    <script src="jquery-3.6.0.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
