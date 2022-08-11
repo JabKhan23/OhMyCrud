@@ -6,6 +6,6 @@ VALUES
 
 INSERT INTO TO_DO_ENTRIES_DOMAIN (DESCRIPTION,DUE_DATE, COMPLETED, MY_LIST_ID)
 VALUES
-('create back end and cry','2022-08-10',true,3),
-('testing for back end and also cry','2022-08-10',false,3),
-('create front end and finally cry','2022-08-10',false,3),
+('create back end and cry','2022-08-11',true,3),
+('testing for back end and also cry','2022-08-11',false,3),
+('create front end and finally cry','2022-08-11',false,3),
